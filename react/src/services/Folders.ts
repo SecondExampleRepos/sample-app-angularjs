@@ -1,0 +1,36 @@
+// react/src/services/Folders.ts
+
+interface Folder {
+  id: string;
+  name: string;
+  // Add other folder properties as needed
+}
+
+class FoldersService {
+  private folders: Folder[] = [];
+
+  constructor() {
+    // Initialize with some default folders or fetch from an API
+    this.folders = [
+      { id: '1', name: 'Inbox' },
+      { id: '2', name: 'Sent' },
+      // Add more default folders if needed
+    ];
+  }
+
+  getFolders(): Folder[] {
+    return this.folders;
+  }
+
+  addFolder(folder: Folder): void {
+    this.folders.push(folder);
+  }
+
+  removeFolder(folderId: string): void {
+    this.folders = this.folders.filter(folder => folder.id !== folderId);
+  }
+
+  // Add more methods as needed
+}
+
+export default new FoldersService();
